@@ -1,0 +1,67 @@
+\input{./src/main.sty}
+% Additional SI unit for Fahrenheit
+\DeclareSIUnit\fahrenheit{\degree F}
+
+\begin{document}
+
+\begin{enumerate}
+  \item Problem 1: For the nuclear stopping cross-section:
+
+    \begin{equation*}
+      S_n(E) = \frac{C_mE^{l-2m}}{1-m}\left[\frac{4 M_1 M_2}{(M_1 +
+      M_2)^2}\right]^{1 - m}
+    \end{equation*}
+
+    Calculate the nuclear stopping cross-sections and $dE/dx|_n$ for
+    energy = 0.1 and 1.0.  \par
+
+    What are the lab energies for these reduced energies? \par
+
+  \item ZBL Nuclear Stopping Cross-section
+
+    \begin{align*}
+      S_n(E_0) &= \frac{\num{8.462e-15} Z_1Z_2M_1S_n(\varepsilon)}
+      {(M_1 + M_2)(Z_1^{0.23} + Z_2^{0.23})}
+      \si{\frac{\electronvolt\centi\meter\squared}{atom}} \\
+      S_n(\varepsilon) &= \frac{0.5 \ln(1 + 1.1383\varepsilon)}
+      {(\varepsilon + 0.01321\varepsilon^{0.21226}
+        + 0.19593\varepsilon^{0.5}} \\
+        \varepsilon &= \frac{32.53 M_2 E_0}{Z_1Z_2(M_1 +
+        M_2)(Z_1^{0.23} + Z_2^{0.23})}
+        \text{with $E_0$ in \si{\kilo\electronvolt}}
+      \end{align*}
+
+      From the lab energies determined in problem 1. Calculate the
+      ZBL nuclear cross section and $dE/dX$ nuclear for \ch{Cu} in \ch{Ni}. \par
+
+    \item High energy electron stopping
+
+      \begin{align*}
+        - \frac{dE}{dx} \Biggr|_e \cong \frac{2\pi
+        Z_1^2e^4}{E}NZ_2\left(\frac{M_1}{m_e}\right)\ln\frac{2m_ev^2}{I} \\
+        I \approx 10 Z_2 \text{average excitation energy} \\
+      \end{align*}
+
+      In the electronic stopping high-velocity regime, what is the
+      value of $dE/dx|_e$ for \SI{10}{\mega\electronvolt} \ch{Ar} in \ch{Cu}
+      (use Eq. 5.39)?  Is \SI{10}{\mega\electronvolt} \ch{Ar} in the
+      high-velocity fully-stripped regime? \par
+
+      Low energy electronic stopping
+
+      \begin{align*}
+        S_e(E) &= 3.83\frac{Z_1^{7/6}Z_2}{(Z_1^{2/3} +
+        Z_2^{2/3})^{3/2}} \left( \frac{E}{M_1} \right)^{1/2} = K_LE^{1/2} \\
+        K_L &= 3.83\frac{Z_1^{7/6}Z_2}{M_1^{1/2}(Z_1^{2/3} + Z_2^{2/3})^{3/2}}
+      \end{align*}
+
+      Calculate the $k$-factor in the low energy stopping cross-section
+      for \ch{As} ions incident on \ch{Si} and \ch{Cu} ions incident on
+      \ch{Ni}.\par
+
+      What are the values of \ch{Se} at \SI{10}{\kilo\electronvolt}
+      and \SI{100}{\kilo\electronvolt}? \par
+
+  \end{enumerate}
+
+  \end{document}

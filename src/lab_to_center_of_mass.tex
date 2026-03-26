@@ -1,0 +1,87 @@
+\begin{tikzpicture}[
+    particle/.style={circle, draw, minimum size=0.8cm, fill=white},
+    vector/.style={-Stealth, thick},
+    label/.style={font=\small},
+    transform shape,
+    scale=2
+  ]
+
+  % % Define positions
+  \coordinate (M1) at (0, 0);
+  \coordinate (M2) at (4, 0);
+  \coordinate (M1final) at (6, 2);
+  \coordinate (M1final_past) at (7, 3);
+  \coordinate (M2final) at (5.5, -2);
+  \coordinate (M2past) at (6, 0);
+  \coordinate (Vcfinal) at (3.25, -2);
+  \coordinate (V0Vcfinal) at (5, 3);
+
+  % Draw particles
+  \node[particle] (m1) at (M1) {$M_1$};
+  \node[particle] (m2) at (M2) {$M_2$};
+
+  % Draw velocity vectors
+  % Initial velocity v0
+  \draw[vector] (m1) -- (m2) node[midway, above] {$v_0(E_0)$};
+
+  % % Final velocity v1
+  \draw[vector] (m2) -- (M1final_past) node[near end, above right,
+  label, xshift=15pt, yshift=15pt] {$v_1(E_1)$};
+
+  % Draw final M1
+  \node[particle] (m1final) at (M1final) {$M_1$};
+
+  % Final velocity v2
+  \draw[vector] (m2) -- (M2final) node[near end, below right, label,
+  xshift=5pt, yshift=-5pt]
+  {$v_2(E_2)$};
+
+  % Dashed line past M2
+  \draw[dashed] (m2) -- (M2past);
+
+  % Draw the velocity components from M2
+  % vC components
+  \draw[vector, thin] (m2) -- (Vcfinal) node[above, label, yshift=10pt] {$v_C$};
+  \draw[vector, thin] (Vcfinal) -- (M2final) node[midway, below, label] {$v_C$};
+  \draw[vector, thin] (m2) -- (V0Vcfinal) node[midway, above,
+  xshift=-12pt, label]
+  {$v_0\!-\!v_C$};
+
+  \draw[thin] (V0Vcfinal) -- (M1final_past) node[midway, above,
+  label] {$v_C$};
+
+  % Angle theta (between v1 and horizontal)
+  \draw[{Stealth}-{Stealth}, thin] (M2) ++(.75, 0) arc[start angle=0, end
+  angle=45, radius=.75];
+  \node at ($(M2) + (1.1, 0.4)$) {$\theta$};
+
+  % Angle theta_c (between v1 and v_0 - v_C)
+  \draw[{Stealth}-{Stealth}, thin] (M2) ++(1.5, 0) arc[start angle=0, end
+  angle=72, radius=1.5];
+  \node at ($(M2) + (1.6, 0.7)$) {$\theta_C$};
+
+  % Angle theta (between v1 and v_C)
+  \draw[{Stealth}-{Stealth}, thin] (M1final_past) ++(-.5, 0) arc[start
+    angle=180, end
+  angle=225, radius=.5];
+  \node at ($(M1final_past) + (-0.7, -0.2)$) {$\theta$};
+
+  % Angle phi (between horizontal and v_2)
+  \draw[{Stealth}-{Stealth}, thin] (m2) ++(.75, 0) arc[start
+  angle=0, end angle=-56, radius=.75];
+  \node at ($(m2) + (0.9, -0.2)$) {$\phi$};
+
+  % Angle phi (between v_2 and v_c)
+  \draw[{Stealth}-{Stealth}, thin] (m2) ++(.45, -0.65) arc[start
+  angle=-50, end angle=-110, radius=.75];
+  \node at ($(m2) + (.2, -1)$) {$\phi$};
+
+  % Angle phi_c (between horizontal and v_c)
+  \draw[{Stealth}-{Stealth}, thin] (m2) ++(1.5, 0) arc[start
+  angle=0, end angle=-110, radius=1.5];
+  \node at ($(m2) + (1.75, -0.3)$) {$\phi_C$};
+
+  % % Title
+  \node[above] at (-1, 1.5) {\textbf{(a) Lab}};
+
+\end{tikzpicture}
